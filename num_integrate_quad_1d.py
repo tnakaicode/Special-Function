@@ -32,14 +32,14 @@ class spl_1d (object):
         super().__init__()
         self.x1 = np.linspace(0, 10, 50)
         self.y1 = np.sin(self.x1)
-        self.px = np.linspace(0, 15, 200)
+        self.px = np.linspace(1, 5, 200)
         self.spl = splrep(self.x1, self.y1)
 
     def spline(self, x=0):
         return splev(x, self.spl)
 
     def spline_quad(self):
-        return quadrature(self.spline, 0, 15)
+        return quadrature(self.spline, 1, 5)
 
     def plot(self):
         plt.figure()
@@ -57,5 +57,5 @@ if __name__ == '__main__':
 
     obj = spl_1d()
     print(*obj.spline_quad())
-    print(*quadrature(np.sin, 0.0, 10))
+    print(*quadrature(np.sin, 1, 5))
     obj.plot()
