@@ -35,11 +35,11 @@ class spl_2d (object):
         self.mesh = np.meshgrid(x0, y0)
         self.data = np.sin(self.mesh[0]) + np.cos(self.mesh[1])
 
-        x1 = np.linspace(1, 9, 100)
-        y1 = np.linspace(1, 9, 200)
+        x1 = np.linspace(0, 10, 100)
+        y1 = np.linspace(0, 10, 200)
         self.g_mesh = np.meshgrid(x1, y1)
 
-    def fit_2d(self, indx=5):
+    def fit_2d(self, indx=10):
         X = self.mesh[0].flatten()
         Y = self.mesh[1].flatten()
         A = [np.ones_like(X)]
